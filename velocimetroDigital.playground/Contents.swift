@@ -19,40 +19,37 @@ class Auto {
     
     func cambioDeVelocidad( ) -> ( actual : Int, velocidadEnCadena: String){
         var cad : String
-        var vel : Int
+        let velActual = self.velocidad.rawValue;
         switch velocidad.rawValue{
         case 0:
             velocidad = Velocidades(velocidadInicial: Velocidades.velocidadBaja)
-            cad = "Velocidad baja"
-            vel = velocidad.rawValue
+            cad = "Apagado"
             break
         case 20:
             velocidad = Velocidades(velocidadInicial: Velocidades.velocidadMedia)
-            cad = "Velocidad media"
-            vel = velocidad.rawValue
+            cad = "Velocidad baja"
             break
         case 50:
             velocidad = Velocidades(velocidadInicial: Velocidades.velocidadAlta)
-            cad = "Velocidad alta"
-            vel = velocidad.rawValue
+            cad = "Velocidad media"
             break
         case 120:
             velocidad = Velocidades(velocidadInicial: Velocidades.velocidadMedia)
-            cad = "Velocidad media"
-            vel = velocidad.rawValue
+            cad = "Velocidad alta"
             break
         default:
             cad = "Apagado"
-            vel = velocidad.rawValue
             break
         }
-        return (vel,cad)
+        return (velActual,cad)
     }
 }
 
 var auto = Auto()
+var resp : (actual: Int, velocidadEnCadena: String)
 for(var i = 0;i<20;i++){
-    print(auto.cambioDeVelocidad())
+    resp = auto.cambioDeVelocidad();
+    print("\(resp.actual), \(resp.velocidadEnCadena)")
 }
 
 
